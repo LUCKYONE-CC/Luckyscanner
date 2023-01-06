@@ -10,7 +10,7 @@ namespace Luckyscanner
         public static TcpClient socket = new TcpClient();
         static void Main(string[] args)
         {
-            target = "example.com";
+            target = "[website]"; //Example: scanme.nmap.org
             //Removes unnecessary characters of the URL, otherwise an error occurs
             switch (target)
             {
@@ -39,17 +39,21 @@ namespace Luckyscanner
             else
             {
                 Console.WriteLine("Found more than one ip:");
+                targetIP = GetIPsByName(target, true, false)[0].ToString();
                 foreach (var ipAdress in GetIPsByName(target, true, false))
                 {
                     Console.WriteLine(ipAdress);
                 }
             }
-
+            Console.WriteLine("Press enter to scan all ports");
             Console.ReadKey();
             //Checks all Ports
             for (int port = 1; port <= 65535; port++)
             {
-                Scan(targetIP, port);
+                if(targetIP != null)
+                {
+                    Scan(targetIP, port);
+                }
             }
         }
 
