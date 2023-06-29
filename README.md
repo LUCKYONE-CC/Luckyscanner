@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/luckyone-cc/luckyscanner/badge)](https://www.codefactor.io/repository/github/luckyone-cc/luckyscanner)
+
 # Luckyscanner
 Luckyscanner is a simple Portscanner written in C#
 
